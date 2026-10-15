@@ -1,0 +1,193 @@
+{
+  "id": "zh-cn-webnovel",
+  "name": "中文网文 · 平台公开口径对齐包",
+  "language": "zh",
+  "version": 2,
+  "rules": [
+    {
+      "id": "prompt-leak",
+      "severity": "error",
+      "category": "prompt-leak",
+      "title": "提示词 / 助手残留",
+      "message": "疑似对话式生成或助手口吻残留。晋江等平台将提示词残留视为强证据向线索。",
+      "patterns": [
+        "作为一个?AI",
+        "作为一名?语言型号?",
+        "当然可以[！!]?",
+        "希望这对你有帮助",
+        "以下是(?:为你)?(?:改写|续写|生成)",
+        "根据你的要求",
+        "ChatGPT",
+        "GPT-?\\d",
+        "Claude",
+        "DeepSeek",
+        "请帮我写",
+        "请续写本章",
+        "【系统提示】",
+        "你是一名网文作者"
+      ]
+    },
+    {
+      "id": "height-dump",
+      "severity": "error",
+      "category": "template-voice",
+      "title": "身高尺码鉴定句",
+      "message": "角色卡式报尺码，常见于模板/生成文。",
+      "patterns": [
+        "一百[零一二三四五六七八九十百]+的个子",
+        "身高[约大概]?\\s*\\d{2,3}",
+        "\\d{3}\\s*cm",
+        "约?一米[二三四五六七八九]"
+      ]
+    },
+    {
+      "id": "appearance-checklist",
+      "severity": "error",
+      "category": "template-voice",
+      "title": "外貌清单句",
+      "message": "鉴定式外貌罗列，模板感强。",
+      "patterns": [
+        "冷白皮",
+        "肩宽腰窄",
+        "薄唇",
+        "丰唇",
+        "剑眉星目",
+        "目若晨星",
+        "容貌俊美",
+        "倾国倾城",
+        "精致的五官"
+      ]
+    },
+    {
+      "id": "mechanical-cliffhanger",
+      "severity": "error",
+      "category": "template-voice",
+      "title": "机械悬念结尾",
+      "message": "章末机械悬念模板；与「转折生硬」类低质描述同向。",
+      "patterns": [
+        "殊不知",
+        "他不知道的是",
+        "她不知道的是",
+        "众人不知道的是",
+        "谁也想不到"
+      ]
+    },
+    {
+      "id": "webnovel-cliche",
+      "severity": "warn",
+      "category": "template-voice",
+      "title": "网文高频套话",
+      "message": "高频套话密集时易被归为机械行文/模板化。",
+      "patterns": [
+        "最后一厘米",
+        "空气都凝固了",
+        "时间仿佛静止",
+        "心中警铃大作",
+        "不由得倒吸一口凉气",
+        "瞳孔骤然收缩",
+        "嘴角勾起一抹",
+        "目光深邃"
+      ]
+    },
+    {
+      "id": "not-a-but-b",
+      "severity": "warn",
+      "category": "structure-fail",
+      "title": "「不是A，是B」排比过度",
+      "message": "生成文常见反转句式堆砌，对齐「句式重复堆砌/模板化拼接」。",
+      "patterns": [
+        "不是[^，。]{1,12}，是",
+        "并非[^，。]{1,12}，而是"
+      ]
+    },
+    {
+      "id": "theme-stamp",
+      "severity": "warn",
+      "category": "hollow-water",
+      "title": "主题金句盖章",
+      "message": "空喊主题、缺少情节推进，偏空洞水文。",
+      "patterns": [
+        "入账的，?才算数",
+        "这就是所谓的",
+        "或许这就是"
+      ]
+    },
+    {
+      "id": "logic-break-voice",
+      "severity": "warn",
+      "category": "ai-crude",
+      "title": "生硬转折套话",
+      "message": "对齐公开描述中的「转折生硬/逻辑割裂」风险话术。",
+      "patterns": [
+        "这一切都太突然了",
+        "他忽然意识到一个可怕的事实",
+        "命运的齿轮开始转动",
+        "故事才刚刚开始",
+        "更大的阴谋还在后面"
+      ]
+    },
+    {
+      "id": "outline-style",
+      "severity": "error",
+      "category": "structure-fail",
+      "title": "提纲式写文",
+      "message": "对齐番茄「结构失常：提纲式写文」等公开描述。",
+      "structural": "outline-style"
+    },
+    {
+      "id": "repeated-openers",
+      "severity": "error",
+      "category": "structure-fail",
+      "title": "句式重复堆砌",
+      "message": "连续段落同一开头，对齐「句式重复堆砌/模板化拼接」。",
+      "structural": "repeated-openers"
+    },
+    {
+      "id": "water-connectors",
+      "severity": "warn",
+      "category": "hollow-water",
+      "title": "流水账连接词过密",
+      "message": "对齐「空洞水文/流水账叙事」公开描述。",
+      "structural": "water-connectors"
+    },
+    {
+      "id": "format-fragmentation",
+      "severity": "error",
+      "category": "format-chaos",
+      "title": "排版碎裂 / 空行异常",
+      "message": "对齐「格式混乱：排版紊乱/分章异常」公开描述。",
+      "structural": "format-fragmentation"
+    },
+    {
+      "id": "phrase-density",
+      "severity": "warn",
+      "category": "structure-fail",
+      "title": "高频短语密度",
+      "message": "同一四字块反复出现，对齐「模板化拼接/同质化」公开描述。",
+      "structural": "phrase-density"
+    },
+    {
+      "id": "emdash-glue",
+      "severity": "info",
+      "category": "template-voice",
+      "title": "破折号硬接因果",
+      "message": "信息硬接，读感跳。",
+      "patterns": [
+        "——[^\\n]{0,40}——"
+      ]
+    },
+    {
+      "id": "system-panel-voice",
+      "severity": "info",
+      "category": "template-voice",
+      "title": "说明书腔对话",
+      "message": "角色说话像文档时失真（规则流设定也需克制人人如此）。",
+      "patterns": [
+        "先确认资产",
+        "处理损耗",
+        "请阅读公示",
+        "双方确认后生效"
+      ]
+    }
+  ]
+}

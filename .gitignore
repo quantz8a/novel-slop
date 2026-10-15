@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-vsix/
+editors/vscode/out/
+editors/vscode/rules/
+editors/vscode/*.vsix
+editors/vscode/node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+coverage/
+.cursor/skills/

@@ -1,0 +1,101 @@
+{
+  "name": "novel-slop",
+  "displayName": "网文 AI 味检测 (novel-slop)",
+  "description": "中文网文 AI 味 / 模板套话本地检测。兼容 VS Code、Cursor，以及基于 VS Code 的国产 IDE（如安装了通义灵码的 VS Code）。",
+  "version": "0.1.0",
+  "publisher": "novel-slop",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "网文",
+    "AI味",
+    "小说",
+    "lint",
+    "中文"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:plaintext",
+    "onCommand:novelSlop.checkFile",
+    "onCommand:novelSlop.clearDiagnostics"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "novelSlop.checkFile",
+        "title": "网文 AI 味：检查当前文件"
+      },
+      {
+        "command": "novelSlop.clearDiagnostics",
+        "title": "网文 AI 味：清除诊断"
+      },
+      {
+        "command": "novelSlop.pickPlatform",
+        "title": "网文 AI 味：切换平台预设"
+      }
+    ],
+    "configuration": {
+      "title": "网文 AI 味检测",
+      "properties": {
+        "novelSlop.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存或编辑 Markdown/纯文本时自动检测"
+        },
+        "novelSlop.runOn": {
+          "type": "string",
+          "enum": [
+            "save",
+            "change",
+            "manual"
+          ],
+          "default": "save",
+          "description": "自动检测触发时机：保存 / 输入防抖 / 仅手动"
+        },
+        "novelSlop.minSeverity": {
+          "type": "string",
+          "enum": [
+            "error",
+            "warn",
+            "info"
+          ],
+          "default": "info",
+          "description": "最低显示级别"
+        },
+        "novelSlop.platform": {
+          "type": "string",
+          "default": "qidian",
+          "description": "平台 id 或别名：qidian/起点、fanqie/番茄、jjwxc/晋江、qimao、zongheng、shuqi、industry…（全列表见 CLI --list-platforms）"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "markdown",
+        "extensions": [
+          ".md",
+          ".markdown"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node ./esbuild.mjs",
+    "watch": "node ./esbuild.mjs --watch",
+    "package": "npm run build && npx --yes @vscode/vsce package --no-dependencies -o ../../dist-vsix/novel-slop-0.1.0.vsix"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.25.1",
+    "typescript": "^5.8.2"
+  }
+}

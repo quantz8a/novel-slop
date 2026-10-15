@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "updated": "2026-10-15",
+  "note": "对齐公开公告/行业公约表述的本地预设，不是各站官方检测 API。",
+  "profiles": [
+    {
+      "id": "generic",
+      "name": "通用网文自查",
+      "family": "meta",
+      "summary": "综合各站公开口径，不绑定单一平台。",
+      "aliases": ["通用", "default", "all"],
+      "sources": ["docs/PLATFORMS.md"],
+      "policy": "balanced",
+      "disclaimer": "启发式自查，不能证明非 AI，也不能代替任何平台审稿。"
+    },
+    {
+      "id": "industry",
+      "name": "行业公约（反洗稿联盟）",
+      "family": "meta",
+      "summary": "音数协联合多平台《网络文学行业反洗稿自律公约》倡议向。",
+      "aliases": ["公约", "反洗稿", "alliance"],
+      "sources": ["中国音像与数字出版协会联合 16 家平台公约公开报道"],
+      "policy": "strict-ai",
+      "disclaimer": "公约是行业倡议，不是某一站的检测 API。"
+    },
+    {
+      "id": "qidian",
+      "name": "起点中文网",
+      "family": "yuewen",
+      "summary": "反对 AI/自动化替代真人完成核心内容；批量生成治理；页面拒 AI 参与（含润色精修）。",
+      "aliases": ["起点", "qd", "qidian.com"],
+      "sources": ["起点《关于进一步加强对非真人自动化创作管理力度的公告》"],
+      "policy": "ban-ai-core",
+      "disclaimer": "起点公开拒绝 AI 直接参与创作。本工具只做自查，不能用于洗白或代发。"
+    },
+    {
+      "id": "yuewen",
+      "name": "阅文集团（综合）",
+      "family": "yuewen",
+      "summary": "阅文旗下综合口径：拒粗制滥造与未审视的润色扩写（公开访谈/公告转述）。",
+      "aliases": ["阅文", "yw", "qqread", "QQ阅读"],
+      "sources": ["阅文公开表态（媒体报道）", "起点公告"],
+      "policy": "ban-ai-core",
+      "disclaimer": "旗下各站细则以站内公告为准；本预设为集团公开口径近似。"
+    },
+    {
+      "id": "fanqie",
+      "name": "番茄小说",
+      "family": "bytedance",
+      "summary": "四类低质：AI粗制滥造、格式混乱、结构失常、空洞水文。",
+      "aliases": ["番茄", "tomato", "fqxs", "红果"],
+      "sources": ["番茄《关于加强低质内容治理公告》及治理通报"],
+      "policy": "low-quality-four",
+      "disclaimer": "不是番茄官方检测器；过检不保证签约。"
+    },
+    {
+      "id": "jjwxc",
+      "name": "晋江文学城",
+      "family": "jjwxc",
+      "summary": "仅允许校对/个别要素/不含记叙七要素的粗纲；禁情节生成与润色；提示词残留强可疑。",
+      "aliases": ["晋江", "jj", "晋江文学"],
+      "sources": ["晋江《关于AI辅助写作使用、判定的试运行公告》"],
+      "policy": "assist-whitelist",
+      "disclaimer": "晋江强调人工复核与写作痕迹自证。命中≠官方认定。"
+    },
+    {
+      "id": "qimao",
+      "name": "七猫小说",
+      "family": "qimao",
+      "summary": "公约签约平台；公开细则较少，按公约+通用低质从严。",
+      "aliases": ["七猫", "qm"],
+      "sources": ["反洗稿公约名单", "通用低质特征"],
+      "policy": "strict-ai",
+      "disclaimer": "以七猫站内最新公告为准。"
+    },
+    {
+      "id": "zongheng",
+      "name": "纵横中文网",
+      "family": "zongheng",
+      "summary": "公约签约平台；男频传统站，按拒自动化核心产出+低质特征自查。",
+      "aliases": ["纵横", "zh"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "ban-ai-core",
+      "disclaimer": "以纵横站内公告为准。"
+    },
+    {
+      "id": "ireader",
+      "name": "掌阅",
+      "family": "ireader",
+      "summary": "公约签约平台；掌阅科技公开名单向。",
+      "aliases": ["掌阅", "iReader"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以掌阅站内公告为准。"
+    },
+    {
+      "id": "chineseall",
+      "name": "中文在线",
+      "family": "chineseall",
+      "summary": "公约签约平台。",
+      "aliases": ["中文在线", "17k", "17K"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "含 17K 等关联品牌时以具体站点公告为准。"
+    },
+    {
+      "id": "dianzhong",
+      "name": "点众科技",
+      "family": "dianzhong",
+      "summary": "公约签约平台。",
+      "aliases": ["点众"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以点众及旗下阅读产品公告为准。"
+    },
+    {
+      "id": "migu",
+      "name": "咪咕数媒",
+      "family": "migu",
+      "summary": "公约签约平台。",
+      "aliases": ["咪咕", "咪咕阅读"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以咪咕数媒公告为准。"
+    },
+    {
+      "id": "wotread",
+      "name": "联通沃悦读",
+      "family": "unicom",
+      "summary": "公约签约平台。",
+      "aliases": ["沃悦读", "联通阅读"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以沃悦读公告为准。"
+    },
+    {
+      "id": "motie",
+      "name": "磨铁文学",
+      "family": "motie",
+      "summary": "公约签约平台。",
+      "aliases": ["磨铁"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以磨铁文学公告为准。"
+    },
+    {
+      "id": "yanyan",
+      "name": "盐言故事",
+      "family": "yanyan",
+      "summary": "公约签约平台。",
+      "aliases": ["盐言"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以盐言故事公告为准。"
+    },
+    {
+      "id": "quyue",
+      "name": "趣阅小说网",
+      "family": "quyue",
+      "summary": "公约签约平台。",
+      "aliases": ["趣阅"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以趣阅公告为准。"
+    },
+    {
+      "id": "liankang",
+      "name": "连尚文学",
+      "family": "liankang",
+      "summary": "公约签约平台。",
+      "aliases": ["连尚"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以连尚文学公告为准。"
+    },
+    {
+      "id": "cjzww",
+      "name": "长江中文网",
+      "family": "cjzww",
+      "summary": "公约签约平台。",
+      "aliases": ["长江", "长江中文"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以长江中文网公告为准。"
+    },
+    {
+      "id": "shuqi",
+      "name": "书旗中文网",
+      "family": "shuqi",
+      "summary": "公约签约平台。",
+      "aliases": ["书旗"],
+      "sources": ["反洗稿公约名单"],
+      "policy": "strict-ai",
+      "disclaimer": "以书旗公告为准。"
+    },
+    {
+      "id": "feilu",
+      "name": "飞卢小说网",
+      "family": "other",
+      "summary": "常见男频投稿站；按通用拒粗制滥造+模板化自查。",
+      "aliases": ["飞卢", "fl"],
+      "sources": ["通用低质特征", "行业公约精神"],
+      "policy": "balanced",
+      "disclaimer": "非公约原文名单站；以飞卢站内规则为准。"
+    },
+    {
+      "id": "heiyan",
+      "name": "黑岩网",
+      "family": "other",
+      "summary": "常见男频站；通用从严自查。",
+      "aliases": ["黑岩"],
+      "sources": ["通用低质特征"],
+      "policy": "balanced",
+      "disclaimer": "以黑岩站内规则为准。"
+    },
+    {
+      "id": "ciweimao",
+      "name": "刺猬猫 / 有毒小说",
+      "family": "other",
+      "summary": "常见二次元向；通用+提示词残留从严。",
+      "aliases": ["刺猬猫", "有毒", "ciweimao"],
+      "sources": ["通用低质特征"],
+      "policy": "assist-whitelist",
+      "disclaimer": "以站内最新规则为准。"
+    },
+    {
+      "id": "lofter",
+      "name": "LOFTER",
+      "family": "netease",
+      "summary": "网易二次元创作社区；公开曾收紧 AI 稿治理（媒体报道）。",
+      "aliases": ["乐乎", "lofter"],
+      "sources": ["媒体报道之平台治理", "通用特征"],
+      "policy": "assist-whitelist",
+      "disclaimer": "以 LOFTER 站内规范为准。"
+    }
+  ],
+  "policies": {
+    "balanced": {
+      "elevateCategories": {
+        "prompt-leak": "error",
+        "ai-crude": "warn",
+        "structure-fail": "warn",
+        "hollow-water": "warn",
+        "format-chaos": "warn",
+        "template-voice": "warn"
+      }
+    },
+    "strict-ai": {
+      "elevateCategories": {
+        "prompt-leak": "error",
+        "ai-crude": "error",
+        "structure-fail": "warn",
+        "hollow-water": "warn",
+        "format-chaos": "error",
+        "template-voice": "error"
+      }
+    },
+    "ban-ai-core": {
+      "elevateCategories": {
+        "prompt-leak": "error",
+        "ai-crude": "error",
+        "template-voice": "error",
+        "structure-fail": "warn",
+        "hollow-water": "warn",
+        "format-chaos": "warn"
+      }
+    },
+    "low-quality-four": {
+      "elevateCategories": {
+        "ai-crude": "error",
+        "format-chaos": "error",
+        "structure-fail": "error",
+        "hollow-water": "error",
+        "prompt-leak": "error",
+        "template-voice": "warn"
+      },
+      "focusCategories": [
+        "ai-crude",
+        "format-chaos",
+        "structure-fail",
+        "hollow-water",
+        "prompt-leak",
+        "template-voice"
+      ]
+    },
+    "assist-whitelist": {
+      "elevateCategories": {
+        "prompt-leak": "error",
+        "ai-crude": "error",
+        "template-voice": "error",
+        "structure-fail": "warn",
+        "hollow-water": "warn",
+        "format-chaos": "warn"
+      },
+      "focusCategories": [
+        "prompt-leak",
+        "ai-crude",
+        "template-voice",
+        "structure-fail",
+        "hollow-water",
+        "format-chaos"
+      ]
+    }
+  }
+}

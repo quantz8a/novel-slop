@@ -1,0 +1,59 @@
+{
+  "name": "novel-slop",
+  "version": "0.1.0",
+  "description": "Detect AI-flavored / template prose smells in Chinese web fiction (中文网文 AI 味检测)",
+  "type": "module",
+  "bin": {
+    "novel-slop": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "test": "node --test dist/**/*.test.js",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "check": "npm run build && npm test",
+    "ext:build": "npm run build --prefix editors/vscode",
+    "ext:package": "mkdir -p dist-vsix && npm run package --prefix editors/vscode",
+    "prepublishOnly": "npm run check"
+  },
+  "keywords": [
+    "chinese",
+    "web-novel",
+    "fiction",
+    "ai-detection",
+    "lint",
+    "slop",
+    "网文",
+    "AI味"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quantz8a/novel-slop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/quantz8a/novel-slop/issues"
+  },
+  "homepage": "https://github.com/quantz8a/novel-slop#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}
